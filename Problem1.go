@@ -5,7 +5,16 @@ import (
 	"sort"
 )
 
-func bar(size int, data []int) {
+func bar(data []int, tipe string) []int {
+
+	switch tipe {
+	case "asc":
+		sort.Ints(data)
+	case "desc":
+		sort.Sort(sort.Reverse(sort.IntSlice(data)))
+	}
+
+	size := len(data)
 	for a := size + 1; a >= 0; a-- {
 		for i := 0; i < len(data); i++ {
 			if a >= data[i] {
@@ -16,21 +25,14 @@ func bar(size int, data []int) {
 		}
 		fmt.Print("\n")
 	}
+	return data
 }
 
 func main() {
 	primes := []int{1, 4, 5, 6, 8, 2}
-	size := len(primes)
-	varssort := []int{1, 4, 5, 6, 8, 2}
-	varreserv := []int{1, 4, 5, 6, 8, 2}
-	sort.Ints(varssort)
-	sort.Sort(sort.Reverse(sort.IntSlice(varreserv)))
-	bar(size, primes)
-	fmt.Println(primes)
+	fmt.Println(bar(primes, "default"))
 	fmt.Println("---------------------------------")
-	bar(size, varssort)
-	fmt.Println(varssort)
+	fmt.Println(bar(primes, "asc"))
 	fmt.Println("---------------------------------")
-	bar(size, varreserv)
-	fmt.Println(varreserv)
+	fmt.Println(bar(primes, "desc"))
 }
