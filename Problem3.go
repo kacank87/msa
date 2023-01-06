@@ -75,8 +75,9 @@ func comparasi(source []string, target []string) {
 
 }
 
-func main3() {
+func main() {
 	extrack("./source", 0, "source")
 	extrack("./target", 0, "target")
+	fmt.Println("---------------------------")
 	comparasi(source, target)
 }
