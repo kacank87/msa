@@ -83,8 +83,9 @@ func read_json_decode(url string) {
 	}
 
 }
-func main4() {
+func main() {
 	read_json_decode("https://data.gov.sg/api/action/datastore_search?resource_id=eb8b932c-503c-41e7-b513-114cffbe2338&limit=100")
+
 	time.Sleep(10 * time.Second)
 
 }
